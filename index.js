@@ -97,6 +97,86 @@ const templates = {
     "tailwindcss": "^4.1.11"
   }
 }`,
+  
+//   Import tailwind styles
+  styles: () => `@import "tailwindcss";`,
+
+  // Component example
+  componentExample: () => `import { useState } from 'react';
+
+export default function CrocBites() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div className='mt-8 bg-white shadow-md rounded-xl p-6 flex flex-col items-center'>
+      <p className='mb-4 text-green-800 font-medium'>
+        ¡Dale de comer al cocodrilo!
+      </p>
+      <button
+        onClick={() => setCount(count + 1)}
+        className='px-6 py-2 bg-green-600 text-white rounded-lg shadow hover:bg-green-700 transition'
+      >
+        🐊 Croc Bites: {count}
+      </button>
+    </div>
+  );
+}`,
+
+  // Layout example
+  layoutExample: () => `---
+const { title = "CrocoApp" } = Astro.props;
+import "../styles/global.css";
+---
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen bg-green-50 flex flex-col items-center justify-center p-6">
+    <slot />
+  </body>
+</html>
+  `,
+
+  // Index example
+  indexExample: () => `---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CrocBites from "../components/CrocoBites.tsx";
+---
+
+<BaseLayout title="Bienvenido a Croco 🐊">
+  <!-- Logo -->
+  <div class="mb-6">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 64 64"
+      class="w-20 h-20 text-green-700"
+      fill="currentColor"
+    >
+      <path d="M60 24c0 8-10 14-22 14-2 0-4 0-6-.5V44c0 6-4 10-10 10s-10-4-10-10c0-4 3-8 8-9V28c-2 0-4 0-6-.5-8-2-14-8-14-16 0-4 2-8 6-8s6 2 6 6v2c0 2 2 4 4 4h12c8 0 14 6 14 14z" />
+    </svg>
+  </div>
+
+  <!-- Title -->
+  <h1 class="text-4xl font-bold text-green-800 text-center">
+    Bienvenido a <span class="text-green-600">Croco</span> 🐊
+  </h1>
+  <p class="mt-4 text-green-700 text-center max-w-md">
+    Has iniciado tu proyecto con la herramienta CLI <strong>Croco</strong>.
+    ¡Listo para empezar a construir tu web app con Astro, React y Tailwind!
+  </p>
+
+  <!-- React component -->
+  <CrocBites client:load />
+
+  <!-- Footer -->
+  <footer class="mt-10 text-green-500 text-sm">
+    Hecho por Carlos Avila
+  </footer>
+</BaseLayout>
+
+  `,
 
   // Astro config
   astroConfig: () => `import { defineConfig } from 'astro/config';
@@ -466,6 +546,7 @@ async function createProject() {
   createDirectory(path.join(projectPath, 'apps/frontend/src/pages'));
   createDirectory(path.join(projectPath, 'apps/frontend/src/components'));
   createDirectory(path.join(projectPath, 'apps/frontend/src/layouts'));
+  createDirectory(path.join(projectPath, 'apps/frontend/src/styles'));
   createDirectory(path.join(projectPath, 'apps/backend'));
   createDirectory(path.join(projectPath, 'apps/backend/src'));
   createDirectory(path.join(projectPath, 'apps/backend/src/controllers'));
@@ -489,6 +570,11 @@ async function createProject() {
   writeFile(path.join(projectPath, 'apps/frontend/package.json'), templates.frontendPackageJson());
   writeFile(path.join(projectPath, 'apps/frontend/astro.config.mjs'), templates.astroConfig());
   writeFile(path.join(projectPath, 'apps/frontend/src/utils/cn.ts'), templates.cnUtility());
+  writeFile(path.join(projectPath, 'apps/frontend/src/styles/global.css'), templates.styles());
+  writeFile(path.join(projectPath, 'apps/frontend/src/components/CrocoBites.tsx'), templates.componentExample());
+  writeFile(path.join(projectPath, 'apps/frontend/src/layouts/BaseLayout.astro'), templates.layoutExample());
+  writeFile(path.join(projectPath, 'apps/frontend/src/pages/index.astro'), templates.indexExample());
+
 
   // Backend files
   writeFile(path.join(projectPath, 'apps/backend/package.json'), templates.backendPackageJson());
