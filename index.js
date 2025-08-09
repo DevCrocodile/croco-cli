@@ -32,11 +32,16 @@ const templates = {
   rootPackageJson: (projectName) => `{
   "name": "${projectName}",
   "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
     "co": "sui-mono commit",
     "test": "echo \\"Error: no test specified\\" && exit 1",
     "dev": "turbo run dev --parallel"
   },
+  "packageManager": "npm@11.4.2",
   "devDependencies": {
     "@s-ui/mono": "2.45.0",
     "ts-standard": "12.0.2",
@@ -407,6 +412,8 @@ jspm_packages/
 *.swo
 *~
 
+.astro
+
 # OS generated files
 .DS_Store
 .DS_Store?
@@ -419,7 +426,7 @@ Thumbs.db`,
   // Turbo config
   turboConfig: () => `{
   "$schema": "https://turbo.build/schema.json",
-  "pipeline": {
+  "tasks": {
     "dev": {
       "cache": false,
       "persistent": true
@@ -456,6 +463,9 @@ async function createProject() {
   createDirectory(path.join(projectPath, 'apps/frontend'));
   createDirectory(path.join(projectPath, 'apps/frontend/src'));
   createDirectory(path.join(projectPath, 'apps/frontend/src/utils'));
+  createDirectory(path.join(projectPath, 'apps/frontend/src/pages'));
+  createDirectory(path.join(projectPath, 'apps/frontend/src/components'));
+  createDirectory(path.join(projectPath, 'apps/frontend/src/layouts'));
   createDirectory(path.join(projectPath, 'apps/backend'));
   createDirectory(path.join(projectPath, 'apps/backend/src'));
   createDirectory(path.join(projectPath, 'apps/backend/src/controllers'));
