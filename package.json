@@ -1,0 +1,46 @@
+{
+  "name": "croco-cli",
+  "version": "1.0.0",
+  "description": "🐊 Croco - A CLI tool to generate full-stack monorepo projects with Astro, React, Tailwind, Express, and TypeScript",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "croco": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublishOnly": "echo \"Ready to publish Croco CLI!\""
+  },
+  "keywords": [
+    "cli",
+    "generator",
+    "template",
+    "monorepo",
+    "astro",
+    "react",
+    "tailwind",
+    "express",
+    "typescript",
+    "fullstack",
+    "boilerplate",
+    "scaffold"
+  ],
+  "author": "carlosavila.dev@gmail.com",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/croco-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/croco-cli/issues"
+  },
+  "homepage": "https://github.com/yourusername/croco-cli#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "index.js",
+    "README.md",
+    "LICENSE"
+  ]
+}
