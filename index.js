@@ -501,7 +501,11 @@ jspm_packages/
 .Spotlight-V100
 .Trashes
 ehthumbs.db
-Thumbs.db`,
+Thumbs.db
+
+package-lock.json
+.turbo
+`,
 
   // Turbo config
   turboConfig: () => `{
