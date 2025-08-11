@@ -597,6 +597,7 @@ async function createProject() {
   console.log('🔧 Setting up git repository...');
   process.chdir(projectPath);
   execSync('git init', { stdio: 'inherit' });
+  execSync('git branch -M main', { stdio: 'inherit' });
 
   if (shouldInstall) {
     console.log('📦 Installing dependencies...');
