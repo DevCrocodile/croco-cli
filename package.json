@@ -1,6 +1,6 @@
 {
   "name": "croco-cli",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "🐊 Croco - A CLI tool to generate full-stack monorepo projects with Astro, React, Tailwind, Express, and TypeScript",
   "main": "index.js",
   "type": "module",
