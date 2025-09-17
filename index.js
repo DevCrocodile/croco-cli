@@ -90,7 +90,8 @@ const templates = {
     "@types/react-dom": "^19.1.6",
     "astro": "^5.12.3",
     "clsx": "2.1.1",
-    "lucide-react": "0.526.0",
+    "lucide-react": "^0.526.0",
+    "dragonfly-ui": "^0.0.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "tailwind-merge": "3.3.1",
@@ -205,7 +206,8 @@ export function cn(...inputs: ClassValue[]) {
   "type": "module",
   "scripts": {
     "test": "echo \\"Error: no test specified\\" && exit 1",
-    "dev": "tsx watch src/index.ts"
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc -p ."
   },
   "dependencies": {
     "cors": "2.8.5",
@@ -236,7 +238,7 @@ export function cn(...inputs: ClassValue[]) {
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
+    "noEmit": false,
     "outDir": "./dist",
     "rootDir": "./src"
   },
