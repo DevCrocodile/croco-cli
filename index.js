@@ -90,7 +90,7 @@ const templates = {
     "@types/react-dom": "^19.1.6",
     "astro": "^5.12.3",
     "clsx": "2.1.1",
-    "lucide-react": "^0.526.0",
+    "lucide-react": "^0.542.0",
     "dragonfly-ui": "^0.0.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
