@@ -39,7 +39,8 @@ const templates = {
   "scripts": {
     "co": "sui-mono commit",
     "test": "echo \\"Error: no test specified\\" && exit 1",
-    "dev": "turbo run dev --parallel"
+    "dev": "turbo run dev --parallel",
+    "build": "turbo run build",
   },
   "packageManager": "npm@11.4.2",
   "devDependencies": {
