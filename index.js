@@ -104,6 +104,7 @@ const templates = {
 
   // Component example
   componentExample: () => `import { useState } from 'react';
+import { Button } from 'dragonfly-ui';
 
 export default function CrocBites() {
   const [count, setCount] = useState(0);
@@ -113,12 +114,12 @@ export default function CrocBites() {
       <p className='mb-4 text-green-800 font-medium'>
         ¡Dale de comer al cocodrilo!
       </p>
-      <button
+      <Button
         onClick={() => setCount(count + 1)}
-        className='px-6 py-2 bg-green-600 text-white rounded-lg shadow hover:bg-green-700 transition'
+        className='bg-green-600 text-white hover:bg-green-700'
       >
         🐊 Croc Bites: {count}
-      </button>
+      </Button>
     </div>
   );
 }`,
@@ -126,6 +127,7 @@ export default function CrocBites() {
   // Layout example
   layoutExample: () => `---
 const { title = "CrocoApp" } = Astro.props;
+import "dragonfly-ui/styles";
 import "../styles/global.css";
 ---
 <html lang="es">
